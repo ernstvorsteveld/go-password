@@ -1,0 +1,28 @@
+= Password package
+:toc: left
+:toclevels: 4
+:author: Ernst Vorsteveld
+:email: ernst.vorsteveld@gmail.com
+:revnumber: 0.1
+:revdate: 27/08/2019
+:revremark: Development
+:version-label!:
+:sectnums:
+
+This package contains password related (helper) code.
+
+== Interface
+
+[code,golang]
+----
+type Password interface {
+  hashPassword() (error)
+  checkPasswordHash() bool
+}
+----
+
+== Implementations
+
+The current implementations are:
+
+* `BcryptPassword`
