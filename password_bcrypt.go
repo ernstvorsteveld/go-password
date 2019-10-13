@@ -13,7 +13,7 @@ type BcryptPassword struct {
 func (h *BcryptPassword) hashPassword() error {
 	initCost(h)
 	bytes, err := bcrypt.GenerateFromPassword([]byte(h.password), h.cost)
-	h.hash = PasswordHash(bytes)
+	h.hash = bytes
 	return err
 }
 
