@@ -1,6 +1,6 @@
 package password
 
 type Password interface {
-	Hash(password string) error
-	Check(password string) bool
+	Hash(plain string) error
+	Check(plain string) bool
 }
