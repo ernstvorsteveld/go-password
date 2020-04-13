@@ -5,9 +5,9 @@ import (
 	"testing"
 )
 
-func Test_should_validate_password_with_bcrypt(t *testing.T) {
+func Test_should_validate_password_with_bcrypt_and_configured_cost(t *testing.T) {
 	password := "MySecret01!"
-	bcryptPassword := BcryptPassword{cost: 10}
+	bcryptPassword := BcryptPassword{Cost: 10}
 
 	error := bcryptPassword.Hash(password)
 	if error != nil {
@@ -16,7 +16,7 @@ func Test_should_validate_password_with_bcrypt(t *testing.T) {
 
 	fmt.Printf("Password: %s\n", password)
 	fmt.Printf("Hash: %s\n", bcryptPassword.hash)
-	fmt.Printf("Cost: %d\n", bcryptPassword.cost)
+	fmt.Printf("Cost: %d\n", bcryptPassword.Cost)
 
 	if bcryptPassword.hash == nil {
 

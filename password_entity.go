@@ -1,11 +1,13 @@
 package password
 
-// const (
-// 	BCRYPT Algorithm = iota
-// 	C1
-// 	C2
-// )
+type Algorithm int
 
-// type PasswordEntity struct {
-// 	password map[Algorithm][]byte
-// }
+const (
+	BCRYPT Algorithm = iota
+	C1
+	C2
+)
+
+type PasswordEntity struct {
+	password map[Algorithm][]byte
+}

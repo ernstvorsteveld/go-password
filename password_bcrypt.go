@@ -6,12 +6,12 @@ import (
 
 type BcryptPassword struct {
 	hash []byte
-	cost int
+	Cost int
 }
 
 func (h *BcryptPassword) Hash(password string) error {
 	initCost(h)
-	bytes, err := bcrypt.GenerateFromPassword([]byte(password), h.cost)
+	bytes, err := bcrypt.GenerateFromPassword([]byte(password), h.Cost)
 	h.hash = bytes
 	return err
 }
@@ -23,7 +23,7 @@ func (h *BcryptPassword) Check(password string) bool {
 }
 
 func initCost(h *BcryptPassword) {
-	if h.cost == 0 {
-		h.cost = 12
+	if h.Cost == 0 {
+		h.Cost = 12
 	}
 }
